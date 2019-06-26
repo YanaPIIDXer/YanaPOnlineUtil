@@ -186,7 +186,7 @@ namespace YanaPOnlineUtil.Stream
 		/// </summary>
 		/// <param name="Data">データ</param>
 		/// <returns>成功したらtrueを返す</returns>
-		public bool Serialize(ref ISerializable Data)
+		public bool Serialize(ISerializable Data)
 		{
 			return Data.Serialize(this);
 		}
