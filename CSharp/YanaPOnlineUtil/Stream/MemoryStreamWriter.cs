@@ -157,6 +157,16 @@ namespace YanaPOnlineUtil.Stream
 		}
 
 		/// <summary>
+		/// シリアライズ
+		/// </summary>
+		/// <param name="Data">データ</param>
+		/// <returns>成功したらtrueを返す</returns>
+		public bool Serialize(ref ISerializable Data)
+		{
+			return Data.Serialize(this);
+		}
+
+		/// <summary>
 		/// 書き込み
 		/// </summary>
 		/// <param name="Bytes">バイト配列</param>
