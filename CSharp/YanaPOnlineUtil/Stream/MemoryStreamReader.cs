@@ -28,6 +28,11 @@ namespace YanaPOnlineUtil.Stream
 		public bool IsError { get; private set; }
 
 		/// <summary>
+		/// 文字列エンコード
+		/// </summary>
+		public Encoding StringEncord { set; private get; }
+
+		/// <summary>
 		/// コンストラクタ
 		/// </summary>
 		/// <param name="InBuffer">バッファ</param>
@@ -36,6 +41,7 @@ namespace YanaPOnlineUtil.Stream
 			Buffer = InBuffer;
 			CurrentPosition = 0;
 			IsError = false;
+			StringEncord = Encoding.UTF8;
 		}
 
 		/// <summary>
@@ -155,7 +161,7 @@ namespace YanaPOnlineUtil.Stream
 			byte[] Bytes = null;
 			if(!Read(ref Bytes, Length)) { return false; }
 
-			Data = BitConverter.ToString(Bytes);
+			Data = StringEncord.GetString(Bytes);
 			return true;
 		}
 

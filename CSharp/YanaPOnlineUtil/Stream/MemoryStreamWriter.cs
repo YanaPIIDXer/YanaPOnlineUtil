@@ -17,11 +17,17 @@ namespace YanaPOnlineUtil.Stream
 		public List<byte> Buffer { get; private set; }
 
 		/// <summary>
+		/// 文字列エンコード
+		/// </summary>
+		public Encoding StringEncord { set; private get; }
+
+		/// <summary>
 		/// コンストラクタ
 		/// </summary>
 		public MemoryStreamWriter()
 		{
 			Buffer = new List<byte>();
+			StringEncord = Encoding.UTF8;
 		}
 		
 		/// <summary>
@@ -130,12 +136,7 @@ namespace YanaPOnlineUtil.Stream
 			int Length = Data.Length;
 			if(!Serialize(ref Length)) { return false; }
 
-			byte[] Bytes = new byte[Length];
-			for(int i = 0; i < Length; i++)
-			{
-				Bytes[i] = (byte)Data[i];
-			}
-
+			byte[] Bytes = StringEncord.GetBytes(Data);
 			Write(Bytes);
 			return true;
 		}
@@ -148,7 +149,11 @@ namespace YanaPOnlineUtil.Stream
 		/// <returns>成功したらtrueを返す</returns>
 		public bool Serialize(ref char[] Data, int Length)
 		{
-			throw new NotImplementedException();
+			byte[] Bytes = new byte[Length];
+
+			Array.Copy(Data, Bytes, Length);
+			Write(Bytes);
+			return true;
 		}
 
 		/// <summary>
