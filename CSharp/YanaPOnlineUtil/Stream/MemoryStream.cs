@@ -64,7 +64,8 @@ namespace YanaPOnlineUtil.Stream
 		/// シリアライズ
 		/// </summary>
 		/// <param name="Data">データ</param>
+		/// <param name="Length">配列長</param>
 		/// <returns>成功したらtrueを返す</returns>
-		bool Serialize(char[] Data);
+		bool Serialize(ref char []Data, int Length);
 	}
 }
