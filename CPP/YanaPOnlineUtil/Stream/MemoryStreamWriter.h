@@ -10,10 +10,10 @@ namespace Stream
 {
 
 /**
- * @class CMemoryStreamWriter
+ * @class MemoryStreamWriter
  * @brief 書き込み用ストリーム
  */
-class CMemoryStreamWriter : public IMemoryStream
+class MemoryStreamWriter : public IMemoryStream
 {
 
 public:
@@ -22,12 +22,12 @@ public:
 	 * @brief コンストラクタ
 	 * @param[in] InBufferSize バッファサイズ
 	 */
-	CMemoryStreamWriter(unsigned int InBufferSize);
+	MemoryStreamWriter(unsigned int InBufferSize);
 
 	/**
 	 * @brief デストラクタ
 	 */
-	virtual ~CMemoryStreamWriter();
+	virtual ~MemoryStreamWriter();
 
 	/**
 	 * @fn virtual bool Serialize(int *pData) = 0

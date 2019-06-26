@@ -5,10 +5,10 @@ namespace YanaPOnlineUtil
 {
 
 /**
- * @class CEndianConverter
+ * @class EndianConverter
  * @brief エンディアン変換
  */
-class CEndianConverter
+class EndianConverter
 {
 
 public:
@@ -124,9 +124,9 @@ public:
 private:
 
 	//暗黙で定義されるものの封印
-	CEndianConverter();
-	CEndianConverter(const CEndianConverter &Arg);
-	CEndianConverter operator =(const CEndianConverter &Arg);
+	EndianConverter();
+	EndianConverter(const EndianConverter &Arg);
+	EndianConverter operator =(const EndianConverter &Arg);
 
 };
 

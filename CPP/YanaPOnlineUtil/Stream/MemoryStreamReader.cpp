@@ -28,7 +28,7 @@ CMemoryStreamReader::~CMemoryStreamReader()
 bool CMemoryStreamReader::Serialize(int *pData)
 {
 	if (!Read(pData, sizeof(int))) { return false; }
-	*pData = CEndianConverter::Convert(*pData);
+	*pData = EndianConverter::Convert(*pData);
 	return true;
 }
 
@@ -36,7 +36,7 @@ bool CMemoryStreamReader::Serialize(int *pData)
 bool CMemoryStreamReader::Serialize(unsigned int *pData)
 {
 	if (!Read(pData, sizeof(unsigned int))) { return false; }
-	*pData = CEndianConverter::Convert(*pData);
+	*pData = EndianConverter::Convert(*pData);
 	return true;
 }
 
@@ -44,7 +44,7 @@ bool CMemoryStreamReader::Serialize(unsigned int *pData)
 bool CMemoryStreamReader::Serialize(short *pData)
 {
 	if (!Read(pData, sizeof(short))) { return false; }
-	*pData = CEndianConverter::Convert(*pData);
+	*pData = EndianConverter::Convert(*pData);
 	return true;
 }
 
@@ -52,7 +52,7 @@ bool CMemoryStreamReader::Serialize(short *pData)
 bool CMemoryStreamReader::Serialize(unsigned short *pData)
 {
 	if (!Read(pData, sizeof(unsigned short))) { return false; }
-	*pData = CEndianConverter::Convert(*pData);
+	*pData = EndianConverter::Convert(*pData);
 	return true;
 }
 
@@ -72,7 +72,7 @@ bool CMemoryStreamReader::Serialize(unsigned char *pData)
 bool CMemoryStreamReader::Serialize(float *pData)
 {
 	if (!Read(pData, sizeof(float))) { return false; }
-	*pData = CEndianConverter::Convert(*pData);
+	*pData = EndianConverter::Convert(*pData);
 	return true;
 }
 

@@ -10,10 +10,10 @@ namespace Stream
 {
 
 /**
- * @class CMemorySizeCaliculator
+ * @class MemorySizeCaliculator
  * @brief サイズ計算ストリーム
  */
-class CMemorySizeCaliculator : public IMemoryStream
+class MemorySizeCaliculator : public IMemoryStream
 {
 
 public:
@@ -21,12 +21,12 @@ public:
 	/**
 	 * @brief コンストラクタ
 	 */
-	CMemorySizeCaliculator();
+	MemorySizeCaliculator();
 
 	/**
 	 * @brief デストラクタ
 	 */
-	virtual ~CMemorySizeCaliculator() {}
+	virtual ~MemorySizeCaliculator() {}
 
 	/**
 	 * @fn virtual bool Serialize(int *pData) override

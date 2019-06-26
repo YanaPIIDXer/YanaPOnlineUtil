@@ -9,7 +9,7 @@ namespace Stream
 {
 
 // コンストラクタ
-CMemoryStreamWriter::CMemoryStreamWriter(unsigned int InBufferSize)
+MemoryStreamWriter::MemoryStreamWriter(unsigned int InBufferSize)
 	: pBuffer(nullptr)
 	, BufferSize(InBufferSize)
 	, CurrentPosition(0)
@@ -19,60 +19,60 @@ CMemoryStreamWriter::CMemoryStreamWriter(unsigned int InBufferSize)
 }
 
 // デストラクタ
-CMemoryStreamWriter::~CMemoryStreamWriter()
+MemoryStreamWriter::~MemoryStreamWriter()
 {
 	delete[] pBuffer;
 }
 
 // intのシリアライズ
-bool CMemoryStreamWriter::Serialize(int *pData)
+bool MemoryStreamWriter::Serialize(int *pData)
 {
-	int Data = CEndianConverter::Convert(*pData);
+	int Data = EndianConverter::Convert(*pData);
 	return Write(&Data, sizeof(int));
 }
 
 // unsigned intのシリアライズ
-bool CMemoryStreamWriter::Serialize(unsigned int *pData)
+bool MemoryStreamWriter::Serialize(unsigned int *pData)
 {
-	unsigned int Data = CEndianConverter::Convert(*pData);
+	unsigned int Data = EndianConverter::Convert(*pData);
 	return Write(&Data, sizeof(unsigned int));
 }
 
 // shortのシリアライズ
-bool CMemoryStreamWriter::Serialize(short *pData)
+bool MemoryStreamWriter::Serialize(short *pData)
 {
-	short Data = CEndianConverter::Convert(*pData);
+	short Data = EndianConverter::Convert(*pData);
 	return Write(&Data, sizeof(short));
 }
 
 // unsigned shortのシリアライズ
-bool CMemoryStreamWriter::Serialize(unsigned short *pData)
+bool MemoryStreamWriter::Serialize(unsigned short *pData)
 {
-	unsigned short Data = CEndianConverter::Convert(*pData);
+	unsigned short Data = EndianConverter::Convert(*pData);
 	return Write(&Data, sizeof(unsigned short));
 }
 
 // charのシリアライズ
-bool CMemoryStreamWriter::Serialize(char *pData)
+bool MemoryStreamWriter::Serialize(char *pData)
 {
 	return Write(pData, sizeof(char));
 }
 
 // unsigned charのシリアライズ
-bool CMemoryStreamWriter::Serialize(unsigned char *pData)
+bool MemoryStreamWriter::Serialize(unsigned char *pData)
 {
 	return Write(pData, sizeof(unsigned char));
 }
 
 // floatのシリアライズ
-bool CMemoryStreamWriter::Serialize(float *pData)
+bool MemoryStreamWriter::Serialize(float *pData)
 {
-	float Data = CEndianConverter::Convert(*pData);
+	float Data = EndianConverter::Convert(*pData);
 	return Write(&Data, sizeof(float));
 }
 
 // 文字列のシリアライズ
-bool CMemoryStreamWriter::Serialize(std::string *pData)
+bool MemoryStreamWriter::Serialize(std::string *pData)
 {
 	// 文字列長.
 	unsigned int Length = pData->length();
@@ -84,7 +84,7 @@ bool CMemoryStreamWriter::Serialize(std::string *pData)
 
 
 // 書き込み
-bool CMemoryStreamWriter::Write(const void *pData, unsigned int Size)
+bool MemoryStreamWriter::Write(const void *pData, unsigned int Size)
 {
 	if (CurrentPosition + Size > BufferSize)
 	{
