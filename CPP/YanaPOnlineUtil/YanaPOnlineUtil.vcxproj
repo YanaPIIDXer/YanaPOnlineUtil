@@ -76,6 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -94,6 +95,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -115,6 +117,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Packet\Packet.h" />
+    <ClInclude Include="Packet\PacketHeader.h" />
+    <ClInclude Include="Packet\PacketSerializer.h" />
     <ClInclude Include="Serializable\Serializable.h" />
     <ClInclude Include="Stream\EndianConverter.h" />
     <ClInclude Include="Stream\MemorySizeCaliculator.h" />
@@ -123,6 +128,8 @@
     <ClInclude Include="Stream\MemoryStreamWriter.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Packet\PacketHeader.cpp" />
+    <ClCompile Include="Packet\PacketSerializer.cpp" />
     <ClCompile Include="Stream\MemorySizeCaliculator.cpp" />
     <ClCompile Include="Stream\MemoryStreamReader.cpp" />
     <ClCompile Include="Stream\MemoryStreamWriter.cpp" />
