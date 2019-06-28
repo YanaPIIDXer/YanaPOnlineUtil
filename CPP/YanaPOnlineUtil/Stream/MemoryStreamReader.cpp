@@ -8,7 +8,7 @@ namespace Stream
 {
 
 // コンストラクタ
-CMemoryStreamReader::CMemoryStreamReader(const char *pInBuffer, unsigned int InBufferSize)
+MemoryStreamReader::MemoryStreamReader(const char *pInBuffer, unsigned int InBufferSize)
 	: pBuffer(nullptr)
 	, BufferSize(InBufferSize)
 	, CurrentPosition(0)
@@ -19,13 +19,13 @@ CMemoryStreamReader::CMemoryStreamReader(const char *pInBuffer, unsigned int InB
 }
 
 // デストラクタ
-CMemoryStreamReader::~CMemoryStreamReader()
+MemoryStreamReader::~MemoryStreamReader()
 {
 	delete[] pBuffer;
 }
 
 // intのシリアライズ
-bool CMemoryStreamReader::Serialize(int *pData)
+bool MemoryStreamReader::Serialize(int *pData)
 {
 	if (!Read(pData, sizeof(int))) { return false; }
 	*pData = EndianConverter::Convert(*pData);
@@ -33,7 +33,7 @@ bool CMemoryStreamReader::Serialize(int *pData)
 }
 
 // unsigned intのシリアライズ
-bool CMemoryStreamReader::Serialize(unsigned int *pData)
+bool MemoryStreamReader::Serialize(unsigned int *pData)
 {
 	if (!Read(pData, sizeof(unsigned int))) { return false; }
 	*pData = EndianConverter::Convert(*pData);
@@ -41,7 +41,7 @@ bool CMemoryStreamReader::Serialize(unsigned int *pData)
 }
 
 // shortのシリアライズ
-bool CMemoryStreamReader::Serialize(short *pData)
+bool MemoryStreamReader::Serialize(short *pData)
 {
 	if (!Read(pData, sizeof(short))) { return false; }
 	*pData = EndianConverter::Convert(*pData);
@@ -49,7 +49,7 @@ bool CMemoryStreamReader::Serialize(short *pData)
 }
 
 // unsigned shortのシリアライズ
-bool CMemoryStreamReader::Serialize(unsigned short *pData)
+bool MemoryStreamReader::Serialize(unsigned short *pData)
 {
 	if (!Read(pData, sizeof(unsigned short))) { return false; }
 	*pData = EndianConverter::Convert(*pData);
@@ -57,19 +57,19 @@ bool CMemoryStreamReader::Serialize(unsigned short *pData)
 }
 
 // charのシリアライズ
-bool CMemoryStreamReader::Serialize(char *pData)
+bool MemoryStreamReader::Serialize(char *pData)
 {
 	return Read(pData, sizeof(char));
 }
 
 // unsigned charのシリアライズ
-bool CMemoryStreamReader::Serialize(unsigned char *pData)
+bool MemoryStreamReader::Serialize(unsigned char *pData)
 {
 	return Read(pData, sizeof(unsigned char));
 }
 
 // floatのシリアライズ
-bool CMemoryStreamReader::Serialize(float *pData)
+bool MemoryStreamReader::Serialize(float *pData)
 {
 	if (!Read(pData, sizeof(float))) { return false; }
 	*pData = EndianConverter::Convert(*pData);
@@ -77,7 +77,7 @@ bool CMemoryStreamReader::Serialize(float *pData)
 }
 
 // 文字列のシリアライズ
-bool CMemoryStreamReader::Serialize(std::string *pData)
+bool MemoryStreamReader::Serialize(std::string *pData)
 {
 	// 文字列長.
 	unsigned int Length = 0;
@@ -94,7 +94,7 @@ bool CMemoryStreamReader::Serialize(std::string *pData)
 
 
 // 読み込み
-bool CMemoryStreamReader::Read(void *pData, unsigned int Size)
+bool MemoryStreamReader::Read(void *pData, unsigned int Size)
 {
 	if (bIsError) { return false; }
 	
