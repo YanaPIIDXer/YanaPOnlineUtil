@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Packet\Packet.cs" />
     <Compile Include="Serializable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stream\MemoryStream.cs" />
