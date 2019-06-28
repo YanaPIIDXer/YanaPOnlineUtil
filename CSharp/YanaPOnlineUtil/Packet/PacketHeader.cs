@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YanaPOnlineUtil.Stream;
 
 namespace YanaPOnlineUtil.Packet
 {
 	/// <summary>
 	/// パケットヘッダ
 	/// </summary>
-	public class PacketHeader
+	public class PacketHeader : ISerializable
 	{
 		/// <summary>
 		/// ヘッダサイズ
@@ -44,6 +45,23 @@ namespace YanaPOnlineUtil.Packet
 		{
 			PacketId = InPacketId;
 			Size = InSize;
+		}
+
+		/// <summary>
+		/// シリアライズ
+		/// </summary>
+		/// <param name="Stream">ストリーム</param>
+		/// <returns>成功したらtrueを返す</returns>
+		public bool Serialize(IMemoryStream Stream)
+		{
+			byte Data = 0;
+			if(!Stream.Serialize(ref Data)) { return false; }
+			PacketId = Data;
+
+			if(!Stream.Serialize(ref Data)) { return false; }
+			Size = Data;
+
+			return true;
 		}
 	}
 }

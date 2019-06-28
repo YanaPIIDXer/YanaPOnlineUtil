@@ -42,10 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Packet\PacketSerializer.cs" />
     <Compile Include="Packet\PacketHeader.cs" />
     <Compile Include="Packet\Packet.cs" />
     <Compile Include="Serializable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stream\MemorySizeCaliculator.cs" />
     <Compile Include="Stream\MemoryStream.cs" />
     <Compile Include="Stream\MemoryStreamReader.cs" />
     <Compile Include="Stream\MemoryStreamWriter.cs" />
