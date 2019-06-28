@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Packet\PacketHeader.cs" />
     <Compile Include="Packet\Packet.cs" />
     <Compile Include="Serializable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
