@@ -1,8 +1,8 @@
-#ifndef __MEMORYSTREAMWRITER_H__
-#define __MEMORYSTREAMWRITER_H__
+#ifndef __MEMORYSIZECALICULATOR_H__
+#define __MEMORYSIZECALICULATOR_H__
 
-#include "MemoryStream.h"
-#include "../Serializable/Serializable.h"
+#include "Stream/MemoryStream.h"
+#include "Serializable/Serializable.h"
 
 namespace YanaPOnlineUtil
 {
@@ -10,27 +10,26 @@ namespace Stream
 {
 
 /**
- * @class MemoryStreamWriter
- * @brief 書き込み用ストリーム
+ * @class CMemorySizeCaliculator
+ * @brief サイズ計算ストリーム
  */
-class MemoryStreamWriter : public IMemoryStream
+class CMemorySizeCaliculator : public IMemoryStream
 {
 
 public:
 
 	/**
 	 * @brief コンストラクタ
-	 * @param[in] InBufferSize バッファサイズ
 	 */
-	MemoryStreamWriter(unsigned int InBufferSize);
+	CMemorySizeCaliculator();
 
 	/**
 	 * @brief デストラクタ
 	 */
-	virtual ~MemoryStreamWriter();
+	virtual ~CMemorySizeCaliculator() {}
 
 	/**
-	 * @fn virtual bool Serialize(int *pData) = 0
+	 * @fn virtual bool Serialize(int *pData) override
 	 * @brief intのシリアライズ
 	 * @param[in] pData データ
 	 * @return 成功したらtrueを返す。
@@ -108,75 +107,48 @@ public:
 	 * @param[in] DataSize データ長
 	 * @return 成功したらtrueを返す。
 	 */
-	virtual bool Serialize(void *pData, unsigned int DataSize) override { return Write(pData, DataSize); }
+	virtual bool Serialize(void *pData, unsigned int DataSize) override
+	{
+		Size += DataSize;
+		return true;
+	}
 
 	/**
 	 * @fn virtual bool IsError() const override
 	 * @brief エラーが発生しているか？
-	 * @return エラーが発生していたらtrueを返す。
+	 * @return エラーなんて無いので常にfalseを返す。
 	 */
-	virtual bool IsError() const override { return bIsError; }
+	virtual bool IsError() const override { return false; }
 
 	/**
 	 * @fn virtual bool IsLeftData() const override
 	 * @brief 読み込んでいないデータが残っているか？
-	 * @return 残っていたらtrueを返す。
+	 * @return 読み込むデータなんて無いので常にfalseを返す。
 	 */
-	virtual bool IsLeftData() const override { return (CurrentPosition < BufferSize); }
+	virtual bool IsLeftData() const override { return false; }
 
 	/**
 	 * @fn virtual EStreamType GetType() const override
 	 * @brief ストリームタイプを取得
 	 * @return ストリームタイプ返す。
 	 */
-	virtual EStreamType GetType() const override { return EStreamType::Write; }
-
-	/**
-	 * @fn const char *GetBuffer() const
-	 * @brief バッファを取得。
-	 * @detail バッファの先頭位置を返す。
-	 * @return バッファ
-	 */
-	const char *GetBuffer() const { return pBuffer; }
+	virtual EStreamType GetType() const override { return EStreamType::CalcSize; }
 
 	/**
 	 * @fn unsigned int GetSize() const
-	 * @brief サイズを取得
+	 * @brief サイズ取得
 	 * @return サイズ
 	 */
-	unsigned int GetSize() const { return CurrentPosition; }
-
-	/**
-	 * @fn void Reset()
-	 * @brief リセット
-	 */
-	void Reset()
-	{
-		CurrentPosition = 0;
-		bIsError = false;
-	}
+	unsigned int GetSize() const { return Size; }
 
 private:
 
-	// バッファ
-	char *pBuffer;
-
-	// バッファサイズ
-	unsigned int BufferSize;
-
-	// 現在の位置.
-	unsigned int CurrentPosition;
-
-	// エラーが起きているか？
-	bool bIsError;
-
-
-	// 書き込み
-	bool Write(const void *pData, unsigned int Size);
+	// サイズ
+	unsigned int Size;
 
 };
 
 }
 }
 
-#endif		// #ifndef __MEMORYSTREAMWRITER_H__
+#endif		// #ifndef __MEMORYSIZECALICULATOR_H__

@@ -10,10 +10,10 @@ namespace Packet
 {
 
 /**
- * @class PacketHeader
+ * @class CPacketHeader
  * @brief パケットヘッダ
  */
-class PacketHeader : public ISerializable
+class CPacketHeader : public ISerializable
 {
 
 public:
@@ -21,19 +21,19 @@ public:
 	/**
 	 * @brief コンストラクタ
 	 */
-	PacketHeader();
+	CPacketHeader();
 	
 	/**
 	 * @brief コンストラクタ
 	 * @param[in] InPacketId パケットＩＤ
 	 * @param[in] InSize サイズ
 	 */
-	PacketHeader(unsigned char InPacketId, unsigned char InSize);
+	CPacketHeader(unsigned char InPacketId, unsigned char InSize);
 	
 	/**
 	 * @brief デストラクタ
 	 */
-	virtual ~PacketHeader() {}
+	virtual ~CPacketHeader() {}
 
 	/**
 	 * @fn unsigned char GetPacketId() const

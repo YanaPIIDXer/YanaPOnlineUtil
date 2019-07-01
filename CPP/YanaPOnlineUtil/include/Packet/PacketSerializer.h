@@ -13,10 +13,10 @@ namespace Packet
 class CPacket;
 
 /**
- * @class PacketSerializer
+ * @class CPacketSerializer
  * @brief パケットシリアライズクラス
  */
-class PacketSerializer
+class CPacketSerializer
 {
 
 private:		// 別名定義.
@@ -31,12 +31,12 @@ public:
 	 * @param[in] InRecvFunc 受信関数
 	 * @param[in] InSendFunc 送信関数
 	 */
-	PacketSerializer(const RecvFunction &InRecvFunc, const SendFunction &InSendFunc);
+	CPacketSerializer(const RecvFunction &InRecvFunc, const SendFunction &InSendFunc);
 
 	/**
 	 * @brief デストラクタ
 	 */
-	~PacketSerializer();
+	~CPacketSerializer();
 
 	/**
 	 * @fn void OnRecv(const char *pData, unsigned int Size)
