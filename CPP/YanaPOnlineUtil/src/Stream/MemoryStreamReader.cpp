@@ -1,4 +1,4 @@
-#include "MemoryStreamReader.h"
+#include "Stream/MemoryStreamReader.h"
 #include "EndianConverter.h"
 #include <memory.h>
 

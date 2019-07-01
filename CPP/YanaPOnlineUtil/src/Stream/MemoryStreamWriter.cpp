@@ -1,4 +1,4 @@
-#include "MemoryStreamWriter.h"
+#include "Stream/MemoryStreamWriter.h"
 #include <memory.h>
 #include <string.h>
 #include "EndianConverter.h"

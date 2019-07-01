@@ -1,5 +1,5 @@
-#include "PacketSerializer.h"
-#include "PacketHeader.h"
+#include "Packet/PacketSerializer.h"
+#include "Packet/PacketHeader.h"
 #include "Stream/MemoryStreamReader.h"
 #include "Stream/MemorySizeCaliculator.h"
 #include "Stream/MemoryStreamWriter.h"

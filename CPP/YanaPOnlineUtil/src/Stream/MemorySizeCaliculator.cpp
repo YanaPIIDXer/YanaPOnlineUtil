@@ -1,4 +1,4 @@
-#include "MemorySizeCaliculator.h"
+#include "Stream/MemorySizeCaliculator.h"
 #include <string.h>
 
 namespace YanaPOnlineUtil
