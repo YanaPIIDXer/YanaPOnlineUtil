@@ -1,8 +1,8 @@
 #ifndef __MEMORYSIZECALICULATOR_H__
 #define __MEMORYSIZECALICULATOR_H__
 
-#include "Stream/MemoryStream.h"
-#include "Serializable/Serializable.h"
+#include "MemoryStream.h"
+#include "../Serializable/Serializable.h"
 
 namespace YanaPOnlineUtil
 {
