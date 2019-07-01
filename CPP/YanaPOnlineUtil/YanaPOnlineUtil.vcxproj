@@ -76,7 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -95,7 +95,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -117,22 +117,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Packet\Packet.h" />
-    <ClInclude Include="Packet\PacketHeader.h" />
-    <ClInclude Include="Packet\PacketSerializer.h" />
-    <ClInclude Include="Serializable\Serializable.h" />
-    <ClInclude Include="Stream\EndianConverter.h" />
-    <ClInclude Include="Stream\MemorySizeCaliculator.h" />
-    <ClInclude Include="Stream\MemoryStream.h" />
-    <ClInclude Include="Stream\MemoryStreamReader.h" />
-    <ClInclude Include="Stream\MemoryStreamWriter.h" />
+    <ClInclude Include="include\Packet\Packet.h" />
+    <ClInclude Include="include\Packet\PacketHeader.h" />
+    <ClInclude Include="include\Packet\PacketSerializer.h" />
+    <ClInclude Include="include\Serializable\Serializable.h" />
+    <ClInclude Include="include\EndianConverter.h" />
+    <ClInclude Include="include\Stream\MemorySizeCaliculator.h" />
+    <ClInclude Include="include\Stream\MemoryStream.h" />
+    <ClInclude Include="include\Stream\MemoryStreamReader.h" />
+    <ClInclude Include="include\Stream\MemoryStreamWriter.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Packet\PacketHeader.cpp" />
-    <ClCompile Include="Packet\PacketSerializer.cpp" />
-    <ClCompile Include="Stream\MemorySizeCaliculator.cpp" />
-    <ClCompile Include="Stream\MemoryStreamReader.cpp" />
-    <ClCompile Include="Stream\MemoryStreamWriter.cpp" />
+    <ClCompile Include="src\Packet\PacketHeader.cpp" />
+    <ClCompile Include="src\Packet\PacketSerializer.cpp" />
+    <ClCompile Include="src\Stream\MemorySizeCaliculator.cpp" />
+    <ClCompile Include="src\Stream\MemoryStreamReader.cpp" />
+    <ClCompile Include="src\Stream\MemoryStreamWriter.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

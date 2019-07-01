@@ -1,5 +1,5 @@
-#ifndef __MEMORYSTREAMREADER_H__
-#define __MEMORYSTREAMREADER_H__
+#ifndef __CMemoryStreamWriter_H__
+#define __CMemoryStreamWriter_H__
 
 #include "MemoryStream.h"
 #include "../Serializable/Serializable.h"
@@ -10,25 +10,24 @@ namespace Stream
 {
 
 /**
- * @class MemoryStreamReader
- * @brief 読み込み用ストリーム
+ * @class CMemoryStreamWriter
+ * @brief 書き込み用ストリーム
  */
-class MemoryStreamReader : public IMemoryStream
+class CMemoryStreamWriter : public IMemoryStream
 {
 
 public:
 
 	/**
- 	 * @brief コンストラクタ
-	 * @param[in] pInBuffer バッファ
- 	 * @param[in] InBufferSize バッファサイズ
+	 * @brief コンストラクタ
+	 * @param[in] InBufferSize バッファサイズ
 	 */
-	MemoryStreamReader(const char *pInBuffer, unsigned int InBufferSize);
+	CMemoryStreamWriter(unsigned int InBufferSize);
 
 	/**
 	 * @brief デストラクタ
 	 */
-	virtual ~MemoryStreamReader();
+	virtual ~CMemoryStreamWriter();
 
 	/**
 	 * @fn virtual bool Serialize(int *pData) = 0
@@ -109,7 +108,7 @@ public:
 	 * @param[in] DataSize データ長
 	 * @return 成功したらtrueを返す。
 	 */
-	virtual bool Serialize(void *pData, unsigned int DataSize) override { return Read(pData, DataSize); }
+	virtual bool Serialize(void *pData, unsigned int DataSize) override { return Write(pData, DataSize); }
 
 	/**
 	 * @fn virtual bool IsError() const override
@@ -130,7 +129,22 @@ public:
 	 * @brief ストリームタイプを取得
 	 * @return ストリームタイプ返す。
 	 */
-	virtual EStreamType GetType() const override { return EStreamType::Read; }
+	virtual EStreamType GetType() const override { return EStreamType::Write; }
+
+	/**
+	 * @fn const char *GetBuffer() const
+	 * @brief バッファを取得。
+	 * @detail バッファの先頭位置を返す。
+	 * @return バッファ
+	 */
+	const char *GetBuffer() const { return pBuffer; }
+
+	/**
+	 * @fn unsigned int GetSize() const
+	 * @brief サイズを取得
+	 * @return サイズ
+	 */
+	unsigned int GetSize() const { return CurrentPosition; }
 
 	/**
 	 * @fn void Reset()
@@ -147,8 +161,8 @@ private:
 	// バッファ
 	char *pBuffer;
 
-	//バッファサイズ
-	const unsigned int BufferSize;
+	// バッファサイズ
+	unsigned int BufferSize;
 
 	// 現在の位置.
 	unsigned int CurrentPosition;
@@ -157,12 +171,12 @@ private:
 	bool bIsError;
 
 
-	// 読み込み
-	bool Read(void *pData, unsigned int Size);
+	// 書き込み
+	bool Write(const void *pData, unsigned int Size);
 
 };
 
 }
 }
 
-#endif		// #ifndef __MEMORYSTREAMREADER_H__
+#endif		// #ifndef __CMemoryStreamWriter_H__

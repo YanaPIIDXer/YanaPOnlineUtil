@@ -15,48 +15,48 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Serializable\Serializable.h">
+    <ClInclude Include="include\Packet\Packet.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Stream\EndianConverter.h">
+    <ClInclude Include="include\Packet\PacketHeader.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Stream\MemorySizeCaliculator.h">
+    <ClInclude Include="include\Packet\PacketSerializer.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Stream\MemoryStream.h">
+    <ClInclude Include="include\Serializable\Serializable.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Stream\MemoryStreamReader.h">
+    <ClInclude Include="include\EndianConverter.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Stream\MemoryStreamWriter.h">
+    <ClInclude Include="include\Stream\MemorySizeCaliculator.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Packet\Packet.h">
+    <ClInclude Include="include\Stream\MemoryStream.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Packet\PacketHeader.h">
+    <ClInclude Include="include\Stream\MemoryStreamReader.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Packet\PacketSerializer.h">
+    <ClInclude Include="include\Stream\MemoryStreamWriter.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Stream\MemorySizeCaliculator.cpp">
+    <ClCompile Include="src\Packet\PacketHeader.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Stream\MemoryStreamReader.cpp">
+    <ClCompile Include="src\Packet\PacketSerializer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Stream\MemoryStreamWriter.cpp">
+    <ClCompile Include="src\Stream\MemorySizeCaliculator.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Packet\PacketHeader.cpp">
+    <ClCompile Include="src\Stream\MemoryStreamReader.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Packet\PacketSerializer.cpp">
+    <ClCompile Include="src\Stream\MemoryStreamWriter.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
