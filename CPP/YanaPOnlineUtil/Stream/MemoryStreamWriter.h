@@ -1,5 +1,5 @@
-#ifndef __MEMORYSTREAMWRITER_H__
-#define __MEMORYSTREAMWRITER_H__
+#ifndef __CMemoryStreamWriter_H__
+#define __CMemoryStreamWriter_H__
 
 #include "MemoryStream.h"
 #include "../Serializable/Serializable.h"
@@ -10,10 +10,10 @@ namespace Stream
 {
 
 /**
- * @class MemoryStreamWriter
+ * @class CMemoryStreamWriter
  * @brief 書き込み用ストリーム
  */
-class MemoryStreamWriter : public IMemoryStream
+class CMemoryStreamWriter : public IMemoryStream
 {
 
 public:
@@ -22,12 +22,12 @@ public:
 	 * @brief コンストラクタ
 	 * @param[in] InBufferSize バッファサイズ
 	 */
-	MemoryStreamWriter(unsigned int InBufferSize);
+	CMemoryStreamWriter(unsigned int InBufferSize);
 
 	/**
 	 * @brief デストラクタ
 	 */
-	virtual ~MemoryStreamWriter();
+	virtual ~CMemoryStreamWriter();
 
 	/**
 	 * @fn virtual bool Serialize(int *pData) = 0
@@ -179,4 +179,4 @@ private:
 }
 }
 
-#endif		// #ifndef __MEMORYSTREAMWRITER_H__
+#endif		// #ifndef __CMemoryStreamWriter_H__

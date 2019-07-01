@@ -10,10 +10,10 @@ namespace Stream
 {
 
 /**
- * @class MemoryStreamReader
+ * @class CMemoryStreamReader
  * @brief 読み込み用ストリーム
  */
-class MemoryStreamReader : public IMemoryStream
+class CMemoryStreamReader : public IMemoryStream
 {
 
 public:
@@ -23,12 +23,12 @@ public:
 	 * @param[in] pInBuffer バッファ
  	 * @param[in] InBufferSize バッファサイズ
 	 */
-	MemoryStreamReader(const char *pInBuffer, unsigned int InBufferSize);
+	CMemoryStreamReader(const char *pInBuffer, unsigned int InBufferSize);
 
 	/**
 	 * @brief デストラクタ
 	 */
-	virtual ~MemoryStreamReader();
+	virtual ~CMemoryStreamReader();
 
 	/**
 	 * @fn virtual bool Serialize(int *pData) = 0

@@ -12,19 +12,19 @@ namespace Packet
 {
 
 // コンストラクタ
-PacketSerializer::PacketSerializer(const RecvFunction &InRecvFunc, const SendFunction &InSendFunc)
+CPacketSerializer::CPacketSerializer(const RecvFunction &InRecvFunc, const SendFunction &InSendFunc)
 	: RecvFunc(InRecvFunc)
 	, SendFunc(InSendFunc)
 {
 }
 
 // デストラクタ
-PacketSerializer::~PacketSerializer()
+CPacketSerializer::~CPacketSerializer()
 {
 }
 
 // 受信した
-void PacketSerializer::OnRecv(const char *pData, unsigned int Size)
+void CPacketSerializer::OnRecv(const char *pData, unsigned int Size)
 {
 	// バッファにデータをブチ込む。
 	Buffer.resize(Buffer.size() + Size);
@@ -35,11 +35,11 @@ void PacketSerializer::OnRecv(const char *pData, unsigned int Size)
 	}
 
 	// ヘッダのシリアライズ
-	MemoryStreamReader StreamReader(&Buffer[0], Buffer.size());
-	PacketHeader Header;
+	CMemoryStreamReader StreamReader(&Buffer[0], Buffer.size());
+	CPacketHeader Header;
 	if (!Header.Serialize(&StreamReader)) { return; }
 
-	unsigned int PacketSize = PacketHeader::HeaderSize + Header.GetSize();
+	unsigned int PacketSize = CPacketHeader::HeaderSize + Header.GetSize();
 	if (Buffer.size() < PacketSize) { return; }
 
 	// 受信に成功していたらバッファから消去。
@@ -53,17 +53,17 @@ void PacketSerializer::OnRecv(const char *pData, unsigned int Size)
 }
 
 // 送信.
-void PacketSerializer::Send(CPacket *pPacket)
+void CPacketSerializer::Send(CPacket *pPacket)
 {
 	// パケットサイズ計算
-	MemorySizeCaliculator SizeCaliculator;
+	CMemorySizeCaliculator SizeCaliculator;
 	SizeCaliculator.Serialize(pPacket);
 
 	// シリアライズ本番
-	MemoryStreamWriter StreamWriter(SizeCaliculator.GetSize() + PacketHeader::HeaderSize);
+	CMemoryStreamWriter StreamWriter(SizeCaliculator.GetSize() + CPacketHeader::HeaderSize);
 
 	// ヘッダ
-	PacketHeader Header(pPacket->GetPacketId(), SizeCaliculator.GetSize());
+	CPacketHeader Header(pPacket->GetPacketId(), SizeCaliculator.GetSize());
 	StreamWriter.Serialize(&Header);
 
 	// パケット
