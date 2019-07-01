@@ -76,7 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include\YanaPOnlineUtil</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -95,7 +95,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include\YanaPOnlineUtil</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -126,6 +126,15 @@
     <ClInclude Include="include\Stream\MemoryStream.h" />
     <ClInclude Include="include\Stream\MemoryStreamReader.h" />
     <ClInclude Include="include\Stream\MemoryStreamWriter.h" />
+    <ClInclude Include="include\YanaPOnlineUtil\EndianConverter.h" />
+    <ClInclude Include="include\YanaPOnlineUtil\Packet\Packet.h" />
+    <ClInclude Include="include\YanaPOnlineUtil\Packet\PacketHeader.h" />
+    <ClInclude Include="include\YanaPOnlineUtil\Packet\PacketSerializer.h" />
+    <ClInclude Include="include\YanaPOnlineUtil\Serializable\Serializable.h" />
+    <ClInclude Include="include\YanaPOnlineUtil\Stream\MemorySizeCaliculator.h" />
+    <ClInclude Include="include\YanaPOnlineUtil\Stream\MemoryStream.h" />
+    <ClInclude Include="include\YanaPOnlineUtil\Stream\MemoryStreamReader.h" />
+    <ClInclude Include="include\YanaPOnlineUtil\Stream\MemoryStreamWriter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Packet\PacketHeader.cpp" />
