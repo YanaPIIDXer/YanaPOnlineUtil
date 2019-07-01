@@ -42,6 +42,33 @@
     <ClInclude Include="include\Stream\MemoryStreamWriter.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="include\YanaPOnlineUtil\Packet\Packet.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\YanaPOnlineUtil\Packet\PacketHeader.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\YanaPOnlineUtil\Packet\PacketSerializer.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\YanaPOnlineUtil\Serializable\Serializable.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\YanaPOnlineUtil\Stream\MemorySizeCaliculator.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\YanaPOnlineUtil\Stream\MemoryStream.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\YanaPOnlineUtil\Stream\MemoryStreamReader.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\YanaPOnlineUtil\Stream\MemoryStreamWriter.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\YanaPOnlineUtil\EndianConverter.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Packet\PacketHeader.cpp">
