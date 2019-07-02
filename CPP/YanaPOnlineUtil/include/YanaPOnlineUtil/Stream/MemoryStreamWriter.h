@@ -94,12 +94,12 @@ public:
 	virtual bool Serialize(std::string *pData) override;
 
 	/**
-	 * @fn virtual bool Serialize(ISerializable *pData) override
+	 * @fn virtual bool Serialize(Serializable::ISerializable *pData) override
 	 * @brief シリアライズ可能なオブジェクトのシリアライズ
 	 * @param[in] pData データ
 	 * @return 成功したらtrueを返す。
 	 */
-	virtual bool Serialize(ISerializable *pData) override { return pData->Serialize(this); }
+	virtual bool Serialize(Serializable::ISerializable *pData) override { return pData->Serialize(this); }
 
 	/**
 	 * @fn virtual bool Serialize(void *pData, unsigned int DataSize) override

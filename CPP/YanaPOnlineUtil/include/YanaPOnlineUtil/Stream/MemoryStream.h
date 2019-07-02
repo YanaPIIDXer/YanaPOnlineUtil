@@ -5,9 +5,10 @@
 
 namespace YanaPOnlineUtil
 {
-
+namespace Serializable
+{
 class ISerializable;
-
+}
 namespace Stream
 {
 
@@ -106,12 +107,12 @@ public:
 	virtual bool Serialize(std::string *pData) = 0;
 
 	/**
-	 * @fn virtual bool Serialize(ISerializable *pData) = 0
+	 * @fn virtual bool Serialize(Serializable::ISerializable *pData) = 0
 	 * @brief シリアライズ可能なオブジェクトのシリアライズ
 	 * @param[in] pData データ
 	 * @return 成功したらtrueを返す。
 	 */
-	virtual bool Serialize(ISerializable *pData) = 0;
+	virtual bool Serialize(Serializable::ISerializable *pData) = 0;
 
 	/**
 	 * @fn virtual bool Serialize(void *pData, unsigned int DataSize) = 0

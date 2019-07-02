@@ -1,9 +1,13 @@
 #ifndef __SERIALIZABLE_H__
 #define __SERIALIZABLE_H__
 
-#include "../Stream/MemoryStream.h"
-
 namespace YanaPOnlineUtil
+{
+namespace Stream
+{
+class IMemoryStream;
+}
+namespace Serializable
 {
 
 /**
@@ -30,6 +34,7 @@ public:
 
 };
 
+}
 }
 
 #endif		// #ifndef __SERIALIZABLE_H__
