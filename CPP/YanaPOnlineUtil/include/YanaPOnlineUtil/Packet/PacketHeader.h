@@ -13,7 +13,7 @@ namespace Packet
  * @class CPacketHeader
  * @brief パケットヘッダ
  */
-class CPacketHeader : public ISerializable
+class CPacketHeader : public Serializable::ISerializable
 {
 
 public:
